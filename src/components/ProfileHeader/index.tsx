@@ -38,16 +38,24 @@ function ContentInfo() {
       <InfoContainer>
         <header>
           <h1>{userinfo.name}</h1>
-          <span>
-            <strong>SOURCE CODE</strong>
-            <ArrowSquareOut size={16} weight="bold" />
-          </span>
+          <a
+            href="https://github.com/devalexsantos/devalexsantos.com.br"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>
+              <strong>SOURCE CODE</strong>
+              <ArrowSquareOut size={16} weight="bold" />
+            </span>
+          </a>
         </header>
         <p>{userinfo.bio}</p>
         <IconsContainer>
           <div>
             <img src={githubIcon} alt="Ícone do Github" />
-            {userinfo.login}
+            <a href={userinfo.html_url} target="_blank" rel="noreferrer">
+              {userinfo.login}
+            </a>
           </div>
           <div>
             <Buildings size={18} />
@@ -55,7 +63,15 @@ function ContentInfo() {
           </div>
           <div>
             <FolderNotchOpen size={18} />
-            <strong>Public Repos:</strong>
+            <strong>
+              <a
+                href="https://github.com/devalexsantos?tab=repositories"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Public Repos:
+              </a>
+            </strong>
             {userinfo.public_repos}
           </div>
         </IconsContainer>

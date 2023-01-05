@@ -21,7 +21,7 @@ interface createContextType {
   totalCount: number
   posts: PostsType[]
   isLoading: boolean
-  getSearchPosts: (query: string) => void
+  getSearchPosts: (query: string) => Promise<void>
 }
 
 export const PostsContext = createContext({} as createContextType)

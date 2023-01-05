@@ -14,12 +14,16 @@ type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function SearchForm() {
   const { totalCount, getSearchPosts } = useContext(PostsContext)
-  const { register, handleSubmit } = useForm<SearchFormInputs>({
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema),
   })
 
-  function handleSearchPosts(data: SearchFormInputs) {
-    getSearchPosts(data.query)
+  async function handleSearchPosts(data: SearchFormInputs) {
+    await getSearchPosts(data.query)
   }
 
   return (
@@ -36,7 +40,7 @@ export function SearchForm() {
           placeholder="Buscar conteúdo"
           {...register('query')}
         />
-        <button>
+        <button type="submit" disabled={isSubmitting}>
           <MagnifyingGlass size={16} />
           Buscar
         </button>

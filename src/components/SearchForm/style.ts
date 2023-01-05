@@ -34,6 +34,10 @@ export const SearchFormContainer = styled.div`
       color: ${(props) => props.theme['gray-800']};
       border-radius: 6px;
       cursor: pointer;
+
+      &:disabled {
+        opacity: 0.3;
+      }
     }
   }
 `

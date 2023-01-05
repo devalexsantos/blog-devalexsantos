@@ -16,4 +16,13 @@ export const GlobalStyle = createGlobalStyle`
     body, input, textarea, button {
         font: 300 1rem Nunito, sans-serif;
     }
+
+    a {
+    text-decoration: none;
+    color: ${(props) => props.theme['gray-100']};
+
+    &:hover {
+        text-decoration: underline;
+        }
+    }
 `
