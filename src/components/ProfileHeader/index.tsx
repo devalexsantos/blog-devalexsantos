@@ -21,7 +21,7 @@ export function ProfileHeader() {
           <header>
             <h1>Alex Santos</h1>
             <span>
-              <strong>GITHUB</strong>
+              <strong>SOURCE</strong>
               <ArrowSquareOut size={16} weight="bold" />
             </span>
           </header>
