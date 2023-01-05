@@ -12,8 +12,7 @@ import { UserInfoContext } from '../../contexts/UserInfoContext'
 import { TailSpin } from 'react-loader-spinner'
 
 export function ProfileHeader() {
-  const { userinfo, isLoading } = useContext(UserInfoContext)
-
+  const { isLoading } = useContext(UserInfoContext)
   return (
     <ProfileHeaderContainer>
       {isLoading ? (
@@ -27,39 +26,46 @@ export function ProfileHeader() {
           />
         </LoadContainer>
       ) : (
-        <ProfileHeaderContent>
-          <img
-            className="profile-img"
-            src={userinfo.avatar_url}
-            alt="Imagem de rosto de Alex Santos"
-          />
-          <InfoContainer>
-            <header>
-              <h1>{userinfo.name}</h1>
-              <span>
-                <strong>SOURCE</strong>
-                <ArrowSquareOut size={16} weight="bold" />
-              </span>
-            </header>
-            <p>{userinfo.bio}</p>
-            <IconsContainer>
-              <div>
-                <img src={githubIcon} alt="Ícone do Github" />
-                {userinfo.login}
-              </div>
-              <div>
-                <Buildings size={18} />
-                {userinfo.company}
-              </div>
-              <div>
-                <FolderNotchOpen size={18} />
-                <strong>Public Repos:</strong>
-                {userinfo.public_repos}
-              </div>
-            </IconsContainer>
-          </InfoContainer>
-        </ProfileHeaderContent>
+        <ContentInfo />
       )}
     </ProfileHeaderContainer>
+  )
+}
+
+function ContentInfo() {
+  const { userinfo } = useContext(UserInfoContext)
+  return (
+    <ProfileHeaderContent>
+      <img
+        className="profile-img"
+        src={userinfo.avatar_url}
+        alt="Imagem de rosto de Alex Santos"
+      />
+      <InfoContainer>
+        <header>
+          <h1>{userinfo.name}</h1>
+          <span>
+            <strong>SOURCE</strong>
+            <ArrowSquareOut size={16} weight="bold" />
+          </span>
+        </header>
+        <p>{userinfo.bio}</p>
+        <IconsContainer>
+          <div>
+            <img src={githubIcon} alt="Ícone do Github" />
+            {userinfo.login}
+          </div>
+          <div>
+            <Buildings size={18} />
+            {userinfo.company}
+          </div>
+          <div>
+            <FolderNotchOpen size={18} />
+            <strong>Public Repos:</strong>
+            {userinfo.public_repos}
+          </div>
+        </IconsContainer>
+      </InfoContainer>
+    </ProfileHeaderContent>
   )
 }
