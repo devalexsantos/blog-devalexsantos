@@ -6,7 +6,7 @@ export const ProfileHeaderContainer = styled.header`
   border-radius: 10px;
   background-color: ${(props) => props.theme['gray-700']};
   padding: 2rem;
-  margin-top: -5rem;
+  margin-top: -8rem;
 `
 
 export const ProfileHeaderContent = styled.div`

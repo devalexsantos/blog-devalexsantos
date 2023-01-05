@@ -4,46 +4,44 @@ import {
   ProfileHeaderContainer,
   ProfileHeaderContent,
 } from './style'
-import exampleAvatar from '../../assets/avatar-alex-santos.jpg'
-import { ArrowSquareOut, Buildings, User } from 'phosphor-react'
+import { ArrowSquareOut, Buildings, FolderNotchOpen } from 'phosphor-react'
 import githubIcon from '../../assets/github-icon.svg'
+import { useContext } from 'react'
+import { UserInfoContext } from '../../contexts/UserInfoContext'
 
 export function ProfileHeader() {
+  const { userinfo } = useContext(UserInfoContext)
+
   return (
     <ProfileHeaderContainer>
       <ProfileHeaderContent>
         <img
           className="profile-img"
-          src={exampleAvatar}
+          src={userinfo.avatar_url}
           alt="Imagem de rosto de Alex Santos"
         />
         <InfoContainer>
           <header>
-            <h1>Alex Santos</h1>
+            <h1>{userinfo.name}</h1>
             <span>
               <strong>SOURCE</strong>
               <ArrowSquareOut size={16} weight="bold" />
             </span>
           </header>
-          <p>
-            Apaixonado por criar telas, tenho um background de Designer.
-            Atualmente estudo e trabalho com desenvolvimento web front end. Sou
-            focado em me manter atualizado com as tecnologias mais modernas do
-            mercado. Tenho experiênciais reais e em produção com Javascript,
-            React.js, Next.js, HTML, CSS entre outras.
-          </p>
+          <p>{userinfo.bio}</p>
           <IconsContainer>
             <div>
               <img src={githubIcon} alt="Ícone do Github" />
-              devalexsantos
+              {userinfo.login}
             </div>
             <div>
               <Buildings size={18} />
-              Cast Group
+              {userinfo.company}
             </div>
             <div>
-              <User size={18} weight="fill" />
-              34 seguidores
+              <FolderNotchOpen size={18} />
+              <strong>Public Repos:</strong>
+              {userinfo.public_repos}
             </div>
           </IconsContainer>
         </InfoContainer>

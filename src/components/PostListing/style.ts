@@ -24,6 +24,7 @@ export const CardPost = styled.div`
   header {
     display: flex;
     justify-content: space-between;
+    gap: 0.7rem;
 
     span {
       font-size: 0.7rem;
