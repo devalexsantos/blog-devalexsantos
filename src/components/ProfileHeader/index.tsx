@@ -45,7 +45,7 @@ function ContentInfo() {
         <header>
           <h1>{userinfo.name}</h1>
           <span>
-            <strong>SOURCE</strong>
+            <strong>SOURCE CODE</strong>
             <ArrowSquareOut size={16} weight="bold" />
           </span>
         </header>
