@@ -1,29 +1,25 @@
+import { useContext } from 'react'
+import { PostsContext } from '../../contexts/PostsContext'
 import { CardPost, PostListingContainer } from './style'
 
 export function PostListing() {
+  const { posts } = useContext(PostsContext)
+
   return (
     <PostListingContainer>
-      <CardPost>
-        <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 01 hora</span>
-        </header>
-        <div className="resume-post">
-          <p>
-            Programming languages all have built-in data structures, but these
-            often differ from one language to another. This article attempts to
-            list the built-in data structures available in JavaScript and what
-            properties they have. These can be used to build other data
-            structures. Wherever possible, comparisons with other languages are
-            drawn. Dynamic typing JavaScript is a loosely typed and dynamic
-            language. Variables in JavaScript are not directly associated with
-            any particular value type, and any variable can be assigned (and
-            re-assigned) values of all types: let foo = 42; // foo is now a
-            number foo =; // foo is now a string foo = true; // foo is now a
-            boolean
-          </p>
-        </div>
-      </CardPost>
+      {posts.map((post, index) => {
+        return (
+          <CardPost key={post.id}>
+            <header>
+              <h3>{post.title}</h3>
+              <span>{new Date(post.created_at).toLocaleString()}</span>
+            </header>
+            <div className="resume-post">
+              <p>{post.body}</p>
+            </div>
+          </CardPost>
+        )
+      })}
     </PostListingContainer>
   )
 }

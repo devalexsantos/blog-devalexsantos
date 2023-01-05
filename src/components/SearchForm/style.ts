@@ -13,10 +13,27 @@ export const SearchFormContainer = styled.div`
     justify-content: space-between;
   }
 
-  input {
-    padding: 0.75rem;
-    border-radius: 6px;
-    background-color: ${(props) => props.theme['gray-900']};
-    color: ${(props) => props.theme['gray-100']};
+  form {
+    display: flex;
+    gap: 1rem;
+
+    input {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 6px;
+      background-color: ${(props) => props.theme['gray-900']};
+      color: ${(props) => props.theme['gray-100']};
+    }
+
+    button {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      align-items: center;
+      background-color: ${(props) => props.theme['gray-100']};
+      color: ${(props) => props.theme['gray-800']};
+      border-radius: 6px;
+      cursor: pointer;
+    }
   }
 `

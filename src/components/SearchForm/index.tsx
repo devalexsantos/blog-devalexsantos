@@ -1,3 +1,4 @@
+import { MagnifyingGlass } from 'phosphor-react'
 import { SearchFormContainer } from './style'
 
 export function SearchForm() {
@@ -7,7 +8,13 @@ export function SearchForm() {
         <strong>Publicações</strong>
         <span>06 publicações</span>
       </div>
-      <input type="text" placeholder="Buscar conteúdo" />
+      <form>
+        <input type="text" placeholder="Buscar conteúdo" />
+        <button>
+          <MagnifyingGlass size={16} />
+          Buscar
+        </button>
+      </form>
     </SearchFormContainer>
   )
 }
