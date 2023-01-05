@@ -9,6 +9,12 @@ export const ProfileHeaderContainer = styled.header`
   margin-top: -8rem;
 `
 
+export const LoadContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const ProfileHeaderContent = styled.div`
   display: flex;
   gap: 2rem;

@@ -14,6 +14,7 @@ interface UserInfoType {
 
 interface UserInfoContextType {
   userinfo: UserInfoType
+  isLoading: boolean
 }
 
 export const UserInfoContext = createContext({} as UserInfoContextType)
@@ -26,10 +27,13 @@ export function UserInfoContextProvider({
   children,
 }: UserInfoContextProviderProps) {
   const [userinfo, setUserInfo] = useState({} as UserInfoType)
+  const [isLoading, setIsLoading] = useState(false)
 
   async function getUserInfoData() {
+    setIsLoading(true)
     const response = await api.get('/users/devalexsantos')
     setUserInfo(response.data)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -37,7 +41,7 @@ export function UserInfoContextProvider({
   }, [])
 
   return (
-    <UserInfoContext.Provider value={{ userinfo }}>
+    <UserInfoContext.Provider value={{ userinfo, isLoading }}>
       {children}
     </UserInfoContext.Provider>
   )
