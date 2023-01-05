@@ -9,7 +9,7 @@ import { ArrowSquareOut, Buildings, FolderNotchOpen } from 'phosphor-react'
 import githubIcon from '../../assets/github-icon.svg'
 import { useContext } from 'react'
 import { UserInfoContext } from '../../contexts/UserInfoContext'
-import { TailSpin } from 'react-loader-spinner'
+import { LoadingSpinner } from '../LoadingSpinner'
 
 export function ProfileHeader() {
   const { isLoading } = useContext(UserInfoContext)
@@ -17,13 +17,7 @@ export function ProfileHeader() {
     <ProfileHeaderContainer>
       {isLoading ? (
         <LoadContainer>
-          <TailSpin
-            height={50}
-            width={50}
-            color="#E1E1E6"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-          />
+          <LoadingSpinner />
         </LoadContainer>
       ) : (
         <ContentInfo />

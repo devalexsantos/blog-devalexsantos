@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { api } from '../lib/axios'
+// import axios from 'axios'
 
 interface UserInfoType {
   name: string
@@ -32,6 +33,7 @@ export function UserInfoContextProvider({
   async function getUserInfoData() {
     setIsLoading(true)
     const response = await api.get('/users/devalexsantos')
+    // const response = await axios.get('/user.json')
     setUserInfo(response.data)
     setIsLoading(false)
   }
