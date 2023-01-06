@@ -5,6 +5,7 @@ import { PostsContext } from '../../contexts/PostsContext'
 import { SearchFormContainer } from './style'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Labels } from '../Labels'
 
 const searchFormSchema = z.object({
   query: z.string(),
@@ -45,6 +46,8 @@ export function SearchForm() {
           Buscar
         </button>
       </form>
+      <div>Categorias:</div>
+      <Labels />
     </SearchFormContainer>
   )
 }
