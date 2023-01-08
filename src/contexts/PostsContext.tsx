@@ -10,6 +10,7 @@ interface PostsType {
   id: string
   html_url: string
   title: string
+  number: string
   user: {
     login: string
   }
@@ -70,6 +71,7 @@ export function PostsContextProvider({ children }: PostsContextProviderProps) {
       return findPost.length > 0 && filteredPosts.push(post)
     })
     setPosts(filteredPosts)
+    setTotalCount(filteredPosts.length)
     setIsFilter(true)
   }
 
