@@ -33,7 +33,7 @@ export function Post() {
   async function getPost() {
     setIsLoading(true)
     await api
-      .get(`/repos/devalexsantos/devalexsantos.com.br/issues/${number}`)
+      .get(`/repos/devalexsantos/blog-devalexsantos/issues/${number}`)
       .then((response) => setPost(response.data))
       .catch(() => navigate('/'))
 

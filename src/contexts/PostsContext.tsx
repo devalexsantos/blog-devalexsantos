@@ -45,7 +45,7 @@ export function PostsContextProvider({ children }: PostsContextProviderProps) {
   async function getPosts() {
     setIsLoading(true)
     const response = await api.get(
-      '/search/issues?q=%20repo:devalexsantos/devalexsantos.com.br',
+      '/search/issues?q=%20repo:devalexsantos/blog-devalexsantos',
     )
     setTotalCount(response.data.total_count)
     setPosts(response.data.items)
@@ -55,7 +55,7 @@ export function PostsContextProvider({ children }: PostsContextProviderProps) {
   async function getSearchPosts(query: string) {
     setIsLoading(true)
     const response = await api.get(
-      `/search/issues?q=${query}%20repo:devalexsantos/devalexsantos.com.br`,
+      `/search/issues?q=${query}%20repo:devalexsantos/blog-devalexsantos`,
     )
 
     setTotalCount(response.data.total_count)
