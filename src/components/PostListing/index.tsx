@@ -1,3 +1,5 @@
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { PostsContext } from '../../contexts/PostsContext'
@@ -29,7 +31,17 @@ function Posts() {
             <Link to={`/post/${post.number}`}>
               <header>
                 <h3>{post.title}</h3>
-                <span>{new Date(post.created_at).toLocaleString()}</span>
+                {post.created_at && (
+                  <span>
+                    {formatDistanceToNow(
+                      new Date(new Date(post.created_at).toISOString()),
+                      {
+                        addSuffix: true,
+                        locale: ptBR,
+                      },
+                    )}
+                  </span>
+                )}
               </header>
               <div className="resume-post">
                 <p>{post.body}</p>

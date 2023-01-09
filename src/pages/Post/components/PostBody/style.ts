@@ -18,7 +18,6 @@ export const BodyPostContent = styled.div`
   justify-content: center;
   img[alt='image'] {
     width: 100%;
-    max-width: 500px;
     display: flex;
   }
 `
