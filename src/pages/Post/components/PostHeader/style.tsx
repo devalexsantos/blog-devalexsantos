@@ -46,4 +46,9 @@ export const FooterContainer = styled.footer`
     align-items: center;
     gap: 0.5rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `

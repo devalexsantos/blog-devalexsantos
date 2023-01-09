@@ -3,7 +3,7 @@ import headerBg from '../../assets/header-background.jpg'
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 250px;
   background-image: url(${headerBg});
   background-size: auto;
 
